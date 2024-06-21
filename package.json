@@ -1,0 +1,98 @@
+{
+  "name": "pkg-name",
+  "type": "module",
+  "version": "0.0.0",
+  "description": "",
+  "author": "Yuns <yuns.xie@qq.com>",
+  "license": "MIT",
+  "funding": [
+    "https://opencollective.com/yuns",
+    "https://afdian.net/@yunslove"
+  ],
+  "homepage": "https://github.com/yunsii/pkg-name#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yunsii/pkg-name"
+  },
+  "bugs": "https://github.com/yunsii/pkg-name/issues",
+  "keywords": [],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite --config vite.docs.config.ts",
+    "build:docs": "tsc && vite build --config vite.docs.config.ts",
+    "bd": "pnpm run build:docs",
+    "ssg": "rimraf dist-docs && vite-pages ssr --configFile vite.docs.config.ts",
+    "ssg:preview": "npm run ssg && serve dist-docs",
+    "build": "tsc && vite build --config vite.lib.config.ts",
+    "preview": "vite preview --config vite.docs.config.ts",
+    "prepare": "husky install",
+    "lint-staged": "lint-staged",
+    "lint-staged:lint": "eslint",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "test": "vitest --config vite.lib.config.ts",
+    "test:ui": "vitest --config vite.lib.config.ts --ui",
+    "coverage": "vitest run --config vite.lib.config.ts --coverage"
+  },
+  "peerDependencies": {
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.6.2",
+    "@changesets/cli": "^2.27.1",
+    "@commitlint/cli": "^18.4.4",
+    "@commitlint/config-conventional": "^18.4.4",
+    "@commitlint/types": "^18.4.4",
+    "@jannajs/lint": "3.0.0-next.3",
+    "@mdx-js/react": "^3.0.0",
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^20.11.0",
+    "@types/react": "^18.2.47",
+    "@types/react-dom": "^18.2.18",
+    "@types/react-router-dom": "^5.3.3",
+    "@types/react-test-renderer": "^18.0.7",
+    "@vitejs/plugin-react": "^4.2.1",
+    "@vitest/coverage-v8": "^1.2.0",
+    "@vitest/ui": "^1.2.0",
+    "autoprefixer": "^10.4.16",
+    "eslint": "npm:eslint-ts-patch@8.56.0-0",
+    "eslint-plugin-format": "^0.1.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "eslint-ts-patch": "^8.56.0-0",
+    "fs-extra": "^11.2.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "postcss": "^8.4.33",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.21.2",
+    "react-test-renderer": "^18.2.0",
+    "rimraf": "^5.0.5",
+    "serve": "^14.2.1",
+    "tailwindcss": "^3.4.1",
+    "tslib": "^2.6.2",
+    "typescript": "^5.3.3",
+    "unplugin-auto-import": "^0.17.3",
+    "vite": "^5.0.11",
+    "vite-pages-theme-doc": "^4.1.7",
+    "vite-plugin-dts": "^3.7.0",
+    "vite-plugin-react-pages": "^4.1.6",
+    "vite-tsconfig-paths": "^4.2.3",
+    "vitest": "^1.2.0"
+  },
+  "lint-staged": {
+    "*": "npm run lint-staged:lint"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  }
+}
