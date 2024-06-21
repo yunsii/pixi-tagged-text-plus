@@ -6,8 +6,8 @@ const PX_PER_EM = 16
 const PX_PER_PERCENT = 16 / 100
 const PX_PER_PT = 1.3281472327365
 
-export function measureFont(context: { font: string }): IFontMetrics {
-  return PIXI.TextMetrics.measureFont(context.font)
+export function measureFont(font: string): IFontMetrics {
+  return PIXI.CanvasTextMetrics.measureFont(font)
 }
 
 export const INITIAL_FONT_PROPS: IFontMetrics = {
@@ -18,12 +18,17 @@ export const INITIAL_FONT_PROPS: IFontMetrics = {
 
 // TODO: Memoize
 export function getFontPropertiesOfText(textField: PIXI.Text, forceUpdate = false): IFontMetrics {
+  const fontFamily = Array.isArray(textField.style.fontFamily)
+    ? textField.style.fontFamily[0]
+    : textField.style.fontFamily
+
+  const font = `${textField.style.fontSize}px ${fontFamily} ${textField.style.fontStyle} ${textField.style.fontVariant} ${textField.style.fontWeight}`
+
   if (forceUpdate) {
-    textField.updateText(false)
-    return measureFont(textField.context)
+    return measureFont(font)
   }
   else {
-    const props = measureFont(textField.context)
+    const props = measureFont(font)
     const fs = Number(textField.style.fontSize) ?? Number.NaN
     if (
       props.ascent === INITIAL_FONT_PROPS.ascent
@@ -34,11 +39,11 @@ export function getFontPropertiesOfText(textField: PIXI.Text, forceUpdate = fals
         'getFontPropertiesOfText() returned metrics associated with a Text field that has not been updated yet. Please try using the forceUpdate parameter when you call this function.',
       )
     }
-    return measureFont(textField.context)
+    return measureFont(fontFamily)
   }
 }
 
-export function addChildrenToContainer(children: PIXI.DisplayObject[], container: PIXI.Container): void {
+export function addChildrenToContainer(children: PIXI.Container[], container: PIXI.Container): void {
   return children.forEach((child) => container.addChild(child))
 }
 

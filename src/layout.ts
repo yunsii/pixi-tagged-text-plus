@@ -44,7 +44,7 @@ import type {
 
 const ICON_SCALE_BASE = 0.8
 
-const sizer = new PIXI.Text('')
+const sizer = new PIXI.Text({ text: '' })
 
 /**
  * Translates the current location point to the beginning of the next line.
@@ -630,9 +630,6 @@ export function calculateTokens(styledTokens: StyledTokens, splitStyle: SplitSty
           align: alignClassic,
           // Override some styles for the purposes of sizing text.
           wordWrap: false,
-          dropShadowBlur: 0,
-          dropShadowDistance: 0,
-          dropShadowAngle: 0,
           dropShadow: false,
         }
 
@@ -660,7 +657,12 @@ export function calculateTokens(styledTokens: StyledTokens, splitStyle: SplitSty
 
             // Incorporate the size of the stroke into the size of the text.
             if (isOnlyWhitespace(token) === false) {
-              const stroke = sizer.style.strokeThickness ?? 0
+              const stroke
+              = typeof sizer.style.stroke !== 'string'
+              && typeof sizer.style.stroke !== 'number'
+              && 'width' in sizer.style.stroke
+                ? Number(sizer.style.stroke.width) || 0
+                : 0
               if (stroke > 0) {
                 fontProperties.descent += stroke / 2
                 fontProperties.ascent += stroke / 2
@@ -714,7 +716,14 @@ export function calculateTokens(styledTokens: StyledTokens, splitStyle: SplitSty
             // Required to remove extra stroke width from whitespace.
             // to be totally honest, I'm not sure why this works / why it was being added.
             if (isOnlyWhitespace(str)) {
-              bounds.width -= style.strokeThickness ?? 0
+              const stroke
+              = style.stroke
+              && typeof style.stroke !== 'string'
+              && typeof style.stroke !== 'number'
+              && 'width' in style.stroke
+                ? Number(style.stroke.width) || 0
+                : 0
+              bounds.width -= stroke
             }
             return convertedToken
           })

@@ -36,7 +36,7 @@ export type TextureSource =
   | HTMLImageElement
   | HTMLCanvasElement
   | HTMLVideoElement
-  | PIXI.BaseTexture
+  | PIXI.Texture
 
 export type ImageSource = PIXI.Sprite | SpriteSource | TextureSource
 
@@ -46,8 +46,8 @@ export function isSpriteSource(s: ImageSource): s is SpriteSource {
     || s instanceof HTMLCanvasElement
     || s instanceof HTMLVideoElement
 }
-export function isBaseTexture(s: ImageSource): s is PIXI.BaseTexture {
-  return s instanceof PIXI.BaseTexture
+export function isBaseTexture(s: ImageSource): s is PIXI.Texture {
+  return s instanceof PIXI.Texture
 }
 export function isImageElement(s: ImageSource): s is HTMLImageElement {
   return s instanceof HTMLImageElement
@@ -210,8 +210,7 @@ export interface LineBreakStyles {
 
 export interface TextStyleExtended
   extends Record<string, unknown>,
-  Partial<Omit<Omit<PIXI.IBitmapTextStyle, 'align'>, 'fontSize'>>,
-  Partial<Omit<PIXI.ITextStyle, 'align'>>,
+  Partial<Omit<PIXI.TextStyleOptions, 'align'>>,
   ImageStyles,
   TextDecorationStyles,
   VerticalAlignStyles,

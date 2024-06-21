@@ -3,13 +3,10 @@ import React, { useEffect } from 'react'
 
 import { createDemo } from './helpers'
 
-export interface IPageProps {
-}
-
-const Page: React.FC<IPageProps> = (props) => {
+const Page: React.FC = () => {
   useEffect(() => {
     const basicText = `
-      Let's make some
+      Let's make some 123
       <ml>multiline</ml>
       and <ms>multistyle</ms> text for
       <pixi>Pixi.js!</pixi>
@@ -37,7 +34,7 @@ const Page: React.FC<IPageProps> = (props) => {
       },
     } as const
 
-    const basic = new TaggedText(basicText, basicStyle, {})
+    const basic = new TaggedText(basicText, basicStyle, { })
 
     createDemo('basic', basic)
   }, [])
@@ -46,7 +43,6 @@ const Page: React.FC<IPageProps> = (props) => {
     <div className='example'>
       <div className='code'>
         <h2>Basics</h2>
-        <pre><code className='js' /></pre>
       </div>
 
       <div className='pixi' id='basic' />

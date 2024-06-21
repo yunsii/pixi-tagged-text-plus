@@ -65,10 +65,10 @@ const DEFAULT_STYLE_SET = { default: DEFAULT_STYLE }
 Object.freeze(DEFAULT_STYLE_SET)
 Object.freeze(DEFAULT_STYLE)
 
-const DEFAULT_DESTROY_OPTIONS: PIXI.IDestroyOptions = {
+const DEFAULT_DESTROY_OPTIONS = {
   children: true,
   texture: true,
-}
+} satisfies PIXI.DestroyOptions
 
 export default class TaggedText<
   TextType extends PixiTextTypes = PIXI.Text,
@@ -370,12 +370,11 @@ export default class TaggedText<
     this._spriteContainer.destroy({
       children: true,
       texture: true,
-      baseTexture: true,
     })
   }
 
-  public destroy(options?: boolean | PIXI.IDestroyOptions): void {
-    let destroyOptions: PIXI.IDestroyOptions = {}
+  public destroy(options?: boolean | PIXI.DestroyOptions): void {
+    let destroyOptions: PIXI.DestroyOptions = {}
     if (typeof options === 'boolean') {
       options = { children: options }
     }
@@ -493,7 +492,7 @@ export default class TaggedText<
       // Listen for changes to sprites (e.g. when they load.)
       const texture = sprite.texture
 
-      const onTextureUpdate = (baseTexture: PIXI.BaseTexture) => {
+      const onTextureUpdate = (baseTexture: PIXI.Texture) => {
         this.onImageTextureUpdate(baseTexture)
         baseTexture.removeListener('update', onTextureUpdate)
       }
@@ -509,7 +508,7 @@ export default class TaggedText<
     })
   }
 
-  private onImageTextureUpdate(_baseTexture: PIXI.BaseTexture): void {
+  private onImageTextureUpdate(_baseTexture: PIXI.Texture): void {
     this._needsUpdate = true
     this._needsDraw = true
     this.updateIfShould()
@@ -631,7 +630,7 @@ export default class TaggedText<
       : this.tokensFlat.filter(isNotWhitespaceToken) // remove any tokens that are purely whitespace unless drawWhitespace is specified
 
     let drewDecorations = false
-    let displayObject: PIXI.DisplayObject
+    let displayObject: PIXI.Container
 
     tokens.forEach((t) => {
       if (isTextToken(t)) {
@@ -709,7 +708,10 @@ export default class TaggedText<
   }
 
   protected createTextField(text: string, style: TextStyleExtended): TextType {
-    return new PIXI.Text(text, style as Partial<PIXI.ITextStyle>) as TextType
+    return new PIXI.Text({
+      text,
+      style: style as Partial<PIXI.TextStyleOptions>,
+    }) as TextType
   }
 
   protected createTextFieldForToken(token: TextSegmentToken): TextType {
@@ -849,7 +851,7 @@ export default class TaggedText<
     // // g.endFill();
 
     function createInfoText(text: string, position: Point): PIXI.Text {
-      const info = new PIXI.Text(text, DEBUG.TEXT_STYLE)
+      const info = new PIXI.Text({ text, style: DEBUG.TEXT_STYLE })
       info.x = position.x + 1
       info.y = position.y + 1
       return info
@@ -911,7 +913,7 @@ export default class TaggedText<
               .endFill()
 
               .lineStyle(1, DEBUG.BASELINE_COLOR, 1)
-              .beginFill()
+              .beginFill('')
               .drawRect(x, baseline, width, 1)
               .endFill()
           }
