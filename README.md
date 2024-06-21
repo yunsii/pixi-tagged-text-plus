@@ -1,17 +1,6 @@
-# pkg-name
+# pixi-tagged-text-plus
 
-[![NPM version](https://img.shields.io/npm/v/pkg-name?color=a1b858&label=)](https://www.npmjs.com/package/pkg-name)
-
-## Usage
-
-- Search and replace all `pkg-name` to `what-you-want-package-name`
-- Update [\_theme.tsx](./docs/pages/_theme.tsx) package href, remove useless navs
-- Update or remove test cases
-- Add description to [package.json](./package.json)
-- Add some keywords to [package.json](./package.json)
-- Update the author information, like name, link, FUNDING etc.
-
-Finally, you can remove the [usage section](#usage) completely.
+[![NPM version](https://img.shields.io/npm/v/pixi-tagged-text-plus?color=a1b858&label=)](https://www.npmjs.com/package/pixi-tagged-text-plus)
 
 ## Build & Publish
 
@@ -26,4 +15,4 @@ Finally, you can remove the [usage section](#usage) completely.
 
 ## License
 
-[MIT](./LICENSE) License © 2022 [Yuns](https://github.com/yunsii)
+[MIT](./LICENSE) License © 2024 [Yuns](https://github.com/yunsii)

@@ -1,21 +1,33 @@
 {
-  "name": "pkg-name",
+  "name": "pixi-tagged-text-plus",
   "type": "module",
   "version": "0.0.0",
-  "description": "",
+  "description": "TaggedText for pixi.js",
   "author": "Yuns <yuns.xie@qq.com>",
   "license": "MIT",
   "funding": [
     "https://opencollective.com/yuns",
     "https://afdian.net/@yunslove"
   ],
-  "homepage": "https://github.com/yunsii/pkg-name#readme",
+  "homepage": "https://github.com/yunsii/pixi-tagged-text-plus#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yunsii/pkg-name"
+    "url": "https://github.com/yunsii/pixi-tagged-text-plus"
   },
-  "bugs": "https://github.com/yunsii/pkg-name/issues",
-  "keywords": [],
+  "bugs": "https://github.com/yunsii/pixi-tagged-text-plus/issues",
+  "keywords": [
+    "pixi",
+    "pixi.js",
+    "text",
+    "multistyle",
+    "multi style",
+    "style",
+    "canvas",
+    "webgl",
+    "graphics",
+    "render",
+    "2d"
+  ],
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",

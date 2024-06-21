@@ -1,6 +1,6 @@
 import * as PIXI from 'pixi.js'
 
-import type TaggedText from 'pkg-name'
+import type TaggedText from 'pixi-tagged-text-plus'
 
 async function createPixiApp(
   id: string,

@@ -1,4 +1,4 @@
-import TaggedText from 'pkg-name'
+import TaggedText from 'pixi-tagged-text-plus'
 import React, { useEffect } from 'react'
 import * as PIXI from 'pixi.js'
 

@@ -9,7 +9,7 @@
     "moduleResolution": "Bundler",
     "paths": {
       "@/*": ["./src/*"],
-      "pkg-name": ["./src"]
+      "pixi-tagged-text-plus": ["./src"]
     },
     "resolveJsonModule": true,
     "allowJs": false,
