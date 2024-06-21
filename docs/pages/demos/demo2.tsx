@@ -1,5 +1,5 @@
 import TaggedText from 'pixi-tagged-text-plus'
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import * as PIXI from 'pixi.js'
 
 import { createDemo } from './helpers'
@@ -54,7 +54,7 @@ const Page: React.FC = () => {
         imgMap: { thinking, doot, url },
       })
 
-      createDemo('img', imgTaggedText)
+      await createDemo('img', imgTaggedText)
     }
 
     run()

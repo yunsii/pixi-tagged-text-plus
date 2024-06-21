@@ -15,7 +15,12 @@ async function createPixiApp(
     height,
     backgroundColor,
   })
-  document.getElementById(id)?.appendChild(app.view)
+  app.canvas.style.width = `${width}px`
+  app.canvas.style.height = `${height}px`
+  const container = document.getElementById(id)
+  if (container && !container.querySelector('canvas')) {
+    container.appendChild(app.canvas)
+  }
 
   return app
 }
