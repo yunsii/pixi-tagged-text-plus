@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "jsx": "react",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "paths": {
+      "pkg-name": ["./src"]
+    },
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["docs", "src"]
+}

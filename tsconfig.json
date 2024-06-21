@@ -23,6 +23,6 @@
     "isolatedModules": true,
     "skipLibCheck": true
   },
-  "references": [{ "path": "./tsconfig.node.json" }],
+  "references": [{ "path": "./tsconfig.node.json" }, { "path": "./tsconfig.docs.json" }],
   "include": ["src"]
 }

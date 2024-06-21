@@ -3,8 +3,9 @@ import './global.css'
 import React from 'react'
 import { createTheme, defaultSideNavs } from 'vite-pages-theme-doc'
 
-import type { Theme } from 'vite-plugin-react-pages'
 import Component404 from './404'
+
+import type { Theme } from 'vite-plugin-react-pages'
 
 const theme: Theme = (props) => {
   const { loadedData, loadState } = props
