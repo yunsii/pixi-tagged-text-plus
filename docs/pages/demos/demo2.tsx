@@ -4,6 +4,8 @@ import * as PIXI from 'pixi.js'
 
 import { createDemo } from './helpers'
 
+const name = 'Inline images'
+
 const Page: React.FC = () => {
   useEffect(() => {
     const run = async () => {
@@ -63,12 +65,14 @@ const Page: React.FC = () => {
   return (
     <div className='example'>
       <div className='code'>
-        <h2>Inline images</h2>
+        <h2>{name}</h2>
       </div>
 
       <div className='pixi' id='img' />
     </div>
   )
 }
+
+Page.displayName = name
 
 export default Page

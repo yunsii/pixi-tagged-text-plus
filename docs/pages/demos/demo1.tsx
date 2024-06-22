@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react'
 
 import { createDemo } from './helpers'
 
-import type * as PIXI from 'pixi.js'
+const name = 'Basics'
 
 const Page: React.FC = () => {
   useEffect(() => {
@@ -48,12 +48,14 @@ const Page: React.FC = () => {
   return (
     <div className='example'>
       <div className='code'>
-        <h2>Basics</h2>
+        <h2>{name}</h2>
       </div>
 
       <div className='pixi' id='basic' />
     </div>
   )
 }
+
+Page.displayName = name
 
 export default Page
