@@ -10,6 +10,8 @@ function createPixiApp(
 ) {
   PIXI.settings.RESOLUTION = 2
   const app = new PIXI.Application({ width, height, backgroundColor })
+  app.view.style.width = `${width}px`
+  app.view.style.height = `${height}px`
   document.getElementById(id)?.appendChild(app.view)
 
   return app

@@ -5,7 +5,8 @@
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "paths": {
-      "pkg-name": ["./src"]
+      "pkg-name": ["./src"],
+      "pkg-name/*": ["./src/*"]
     },
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true
