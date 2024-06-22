@@ -1,7 +1,9 @@
 import TaggedText from 'pixi-tagged-text-plus'
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect } from 'react'
 
 import { createDemo } from './helpers'
+
+import type { TextStyleSet } from 'pixi-tagged-text-plus/types'
 
 const name = 'Basics'
 
@@ -35,7 +37,7 @@ const Page: React.FC = () => {
           fontSize: '64px',
           fill: '#efefef',
         },
-      } as const
+      } as TextStyleSet
 
       const basic = new TaggedText(basicText, basicStyle, { })
 

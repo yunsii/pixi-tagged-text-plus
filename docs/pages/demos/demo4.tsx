@@ -1,5 +1,5 @@
 import TaggedText from 'pixi-tagged-text-plus'
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect } from 'react'
 import * as PIXI from 'pixi.js'
 
 import { createDemo } from './helpers'

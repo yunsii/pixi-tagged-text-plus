@@ -1,6 +1,5 @@
 import TaggedText from 'pixi-tagged-text-plus'
-import React, { useEffect, useRef } from 'react'
-import * as PIXI from 'pixi.js'
+import React, { useEffect } from 'react'
 
 import { createDemo } from './helpers'
 
@@ -14,14 +13,14 @@ const Page: React.FC = () => {
       // adjustFontBaselines
       const adjustFontBaselineText = `
         If you need to, you can manually adjust where the font sits on the baseline.
-              You can use pixel values...
-              <beep fontSize="10">beep</beep> <beep fontSize="20">beep</beep> <beep fontSize="30">beep</beep> <beep fontSize="40">beep</beep> <beep fontSize="50">beep</beep> +20px
-              <baap fontSize="10">baap</baap> <baap fontSize="20">baap</baap> <baap fontSize="30">baap</baap> <baap fontSize="40">baap</baap> <baap fontSize="50">baap</baap> -10px
+        You can use pixel values...
+        <beep fontSize="10">beep</beep> <beep fontSize="20">beep</beep> <beep fontSize="30">beep</beep> <beep fontSize="40">beep</beep> <beep fontSize="50">beep</beep> +20px
+        <baap fontSize="10">baap</baap> <baap fontSize="20">baap</baap> <baap fontSize="30">baap</baap> <baap fontSize="40">baap</baap> <baap fontSize="50">baap</baap> -10px
       
-              ...or percentages (of the ascender height)
-              <boop fontSize="10">boop</boop> <boop fontSize="20">boop</boop> <boop fontSize="30">boop</boop> <boop fontSize="40">boop</boop> <boop fontSize="50">boop</boop> +100%
+        ...or percentages (of the ascender height)
+        <boop fontSize="10">boop</boop> <boop fontSize="20">boop</boop> <boop fontSize="30">boop</boop> <boop fontSize="40">boop</boop> <boop fontSize="50">boop</boop> +100%
       
-              This is designed to help with fonts which don't align correctly with the baseline so rather than being a style property, it's a mapping of font-family values to their offsets as part of the options object.
+        This is designed to help with fonts which don't align correctly with the baseline so rather than being a style property, it's a mapping of font-family values to their offsets as part of the options object.
       `
 
       const adjustFontBaselineStyle = {

@@ -1,6 +1,5 @@
 import TaggedText from 'pixi-tagged-text-plus'
-import React, { useEffect, useRef } from 'react'
-import * as PIXI from 'pixi.js'
+import React, { useEffect } from 'react'
 
 import { createDemo } from './helpers'
 
@@ -15,15 +14,15 @@ const Page: React.FC = () => {
       const fontScalingText = `
         You can change the scaling of the font:
 
-              <b>fontScaleWidth:</b>
-              75% = <condensed>narrow / condensed</condensed>
-              125% = <extended>wide / extended</extended>
-              250% = <superExtended>super extended</superExtended>
+        <b>fontScaleWidth:</b>
+        75% = <condensed>narrow / condensed</condensed>
+        125% = <extended>wide / extended</extended>
+        250% = <superExtended>super extended</superExtended>
 
-              <b>fontScaleHeight:</b>
-              75% = <short>short</short>
-              125% = <tall>tall</tall>
-              250% = <superTall>super tall</superTall>
+        <b>fontScaleHeight:</b>
+        75% = <short>short</short>
+        125% = <tall>tall</tall>
+        250% = <superTall>super tall</superTall>
       `
       const fontScalingStyle = {
         default: {

@@ -1,5 +1,5 @@
 import TaggedText from 'pixi-tagged-text-plus'
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect } from 'react'
 
 import { createDemo } from './helpers'
 
@@ -48,7 +48,7 @@ const Page: React.FC = () => {
         __EMOJI__: {
           fontSize: '100%',
         },
-      }satisfies TextStyleSet
+      } satisfies TextStyleSet
 
       const emojiTaggedText = new TaggedText(emojiText, emojiStyle, {
         wrapEmoji: true,

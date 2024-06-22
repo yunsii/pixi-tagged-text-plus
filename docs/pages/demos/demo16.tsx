@@ -1,10 +1,7 @@
 import TaggedText from 'pixi-tagged-text-plus'
-import React, { useEffect, useRef } from 'react'
-import * as PIXI from 'pixi.js'
+import React, { useEffect } from 'react'
 
 import { createDemo } from './helpers'
-
-import type { TextStyleSet } from 'pixi-tagged-text-plus/types'
 
 const name = 'Interaction Events'
 

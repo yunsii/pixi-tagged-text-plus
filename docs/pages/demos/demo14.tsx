@@ -1,6 +1,5 @@
 import TaggedText from 'pixi-tagged-text-plus'
-import React, { useEffect, useRef } from 'react'
-import * as PIXI from 'pixi.js'
+import React, { useEffect } from 'react'
 
 import { createDemo } from './helpers'
 
@@ -14,7 +13,7 @@ const Page: React.FC = () => {
       // Debug Mode
       const debugText = `
         You can use <blue>debug mode</blue> to help you figure out what your text is doing. Include <code>{debug: true} </code> in the options when you create your text.
-              You can also set <code>debugConsole: true</code> if you want to log information about the text field to the console.
+        You can also set <code>debugConsole: true</code> if you want to log information about the text field to the console.
       `
       const debugStyle = {
         default: {
