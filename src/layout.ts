@@ -44,8 +44,6 @@ import type {
 
 const ICON_SCALE_BASE = 0.8
 
-const sizer = new PIXI.Text('')
-
 /**
  * Translates the current location point to the beginning of the next line.
  *
@@ -615,6 +613,8 @@ export function splitText(s: string, splitStyle: SplitStyle): string[] {
 export function calculateTokens(styledTokens: StyledTokens, splitStyle: SplitStyle = 'words', scaleIcons = true, adjustFontBaseline?: FontMap): ParagraphToken {
   // Create a text field to use for measurements.
   const defaultStyle = styledTokens.style
+
+  const sizer = new PIXI.Text('')
 
   let fontProperties: IFontMetrics
 
