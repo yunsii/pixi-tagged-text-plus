@@ -864,10 +864,11 @@ export default class TaggedText<
 
       if (this.defaultStyle.wordWrap) {
         const w = this.defaultStyle.wordWrapWidth ?? this.width
-        g.endFill()
-          .lineStyle(0.5, DEBUG.LINE_COLOR, 0.2)
-          .drawRect(0, lineBounds.y, w, lineBounds.height)
-          .endFill()
+        g.rect(0, lineBounds.y, w, lineBounds.height).stroke({
+          width: 0.5,
+          color: DEBUG.LINE_COLOR,
+          alpha: 0.2,
+        })
       }
 
       for (let wordNumber = 0; wordNumber < line.length; wordNumber++) {
@@ -890,16 +891,18 @@ export default class TaggedText<
             isWhitespaceToken(segmentToken)
             && this.options.drawWhitespace === false
           ) {
-            g.lineStyle(1, DEBUG.WHITESPACE_STROKE_COLOR, 1).beginFill(
-              DEBUG.WHITESPACE_COLOR,
-              0.2,
-            )
+            g.stroke({
+              width: 1,
+              color: DEBUG.WHITESPACE_STROKE_COLOR,
+              alpha: 1,
+            }).fill({ color: DEBUG.WHITESPACE_COLOR, alpha: 0.2 })
           }
           else {
-            g.lineStyle(1, DEBUG.WORD_STROKE_COLOR, 1).beginFill(
-              DEBUG.WORD_FILL_COLOR,
-              0.2,
-            )
+            g.stroke({
+              width: 1,
+              color: DEBUG.WHITESPACE_STROKE_COLOR,
+              alpha: 1,
+            }).fill({ color: DEBUG.WORD_FILL_COLOR, alpha: 0.2 })
           }
 
           if (isNewlineToken(segmentToken)) {
@@ -908,14 +911,15 @@ export default class TaggedText<
             )
           }
           else {
-            g.lineStyle(0.5, DEBUG.LINE_COLOR, 0.2)
-              .drawRect(x, y, width, height)
-              .endFill()
-
-              .lineStyle(1, DEBUG.BASELINE_COLOR, 1)
-              .beginFill('')
-              .drawRect(x, baseline, width, 1)
-              .endFill()
+            g.rect(x, y, width, height).stroke({
+              width: 0.5,
+              color: DEBUG.LINE_COLOR,
+              alpha: 0.2,
+            }).fill().rect(x, baseline, width, 1).stroke({
+              width: 1,
+              color: DEBUG.BASELINE_COLOR,
+              alpha: 1,
+            })
           }
 
           let info
