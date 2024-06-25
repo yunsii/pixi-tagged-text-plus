@@ -17,30 +17,25 @@ export const INITIAL_FONT_PROPS: IFontMetrics = {
 }
 
 // TODO: Memoize
-export function getFontPropertiesOfText(textField: PIXI.Text, forceUpdate = false): IFontMetrics {
+export function getFontPropertiesOfText(textField: PIXI.Text): IFontMetrics {
   const fontFamily = Array.isArray(textField.style.fontFamily)
     ? textField.style.fontFamily[0]
     : textField.style.fontFamily
 
   const font = `${textField.style.fontSize}px ${fontFamily} ${textField.style.fontStyle} ${textField.style.fontVariant} ${textField.style.fontWeight}`
 
-  if (forceUpdate) {
-    return measureFont(font)
+  const props = measureFont(font)
+  const fs = Number(textField.style.fontSize) ?? Number.NaN
+  if (
+    props.ascent === INITIAL_FONT_PROPS.ascent
+    && props.descent === INITIAL_FONT_PROPS.descent
+    && (Number.isNaN(fs) || fs > INITIAL_FONT_PROPS.fontSize)
+  ) {
+    throw new Error(
+      'getFontPropertiesOfText() returned metrics associated with a Text field that has not been updated yet. Please try using the forceUpdate parameter when you call this function.',
+    )
   }
-  else {
-    const props = measureFont(font)
-    const fs = Number(textField.style.fontSize) ?? Number.NaN
-    if (
-      props.ascent === INITIAL_FONT_PROPS.ascent
-      && props.descent === INITIAL_FONT_PROPS.descent
-      && (Number.isNaN(fs) || fs > INITIAL_FONT_PROPS.fontSize)
-    ) {
-      throw new Error(
-        'getFontPropertiesOfText() returned metrics associated with a Text field that has not been updated yet. Please try using the forceUpdate parameter when you call this function.',
-      )
-    }
-    return measureFont(fontFamily)
-  }
+  return props
 }
 
 export function addChildrenToContainer(children: PIXI.Container[], container: PIXI.Container): void {

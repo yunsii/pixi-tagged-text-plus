@@ -700,9 +700,7 @@ export default class TaggedText<
     const width = Math.max(bounds.width + overdraw * 2, 0)
 
     drawing
-      .beginFill(color as number)
-      .drawRect(x, y, width, height)
-      .endFill()
+      .rect(x, y, width, height).fill(color)
 
     return drawing
   }

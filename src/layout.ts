@@ -44,8 +44,6 @@ import type {
 
 const ICON_SCALE_BASE = 0.8
 
-const sizer = new PIXI.Text({ text: '' })
-
 /**
  * Translates the current location point to the beginning of the next line.
  *
@@ -616,6 +614,7 @@ export function calculateTokens(styledTokens: StyledTokens, splitStyle: SplitSty
   // Create a text field to use for measurements.
   const defaultStyle = styledTokens.style
 
+  const sizer = new PIXI.Text({ text: '' })
   let fontProperties: IFontMetrics
 
   const generateTokensFormStyledToken
@@ -653,7 +652,7 @@ export function calculateTokens(styledTokens: StyledTokens, splitStyle: SplitSty
                 sizer.text = str
             }
 
-            fontProperties = { ...getFontPropertiesOfText(sizer, true) }
+            fontProperties = { ...getFontPropertiesOfText(sizer) }
 
             // Incorporate the size of the stroke into the size of the text.
             if (isOnlyWhitespace(token) === false) {
@@ -735,7 +734,7 @@ export function calculateTokens(styledTokens: StyledTokens, splitStyle: SplitSty
           const imgDisplay = style[IMG_DISPLAY_PROPERTY]
           // const isBlockImage = imgDisplay === "block";
           const isIcon = imgDisplay === 'icon'
-          fontProperties = { ...getFontPropertiesOfText(sizer, true) }
+          fontProperties = { ...getFontPropertiesOfText(sizer) }
 
           if (isIcon) {
           // Set to minimum of 1 to avoid devide by zero.
