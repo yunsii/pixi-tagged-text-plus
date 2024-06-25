@@ -2,6 +2,7 @@
   "name": "pkg-name",
   "type": "module",
   "version": "0.0.0",
+  "packageManager": "pnpm@8.15.8",
   "description": "",
   "author": "Yuns <yuns.xie@qq.com>",
   "license": "MIT",
