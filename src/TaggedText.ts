@@ -477,9 +477,9 @@ export default class TaggedText<
 
       if (
         (isSpriteSource(spriteSource)
-        && (spriteSource as PIXI.Texture).baseTexture === null)
+        && (spriteSource as PIXI.Texture).source === null)
         || (sprite !== undefined
-        && (sprite.destroyed || sprite.texture?.baseTexture === null))
+        && (sprite.destroyed || sprite.texture?.source === null))
       ) {
         error = destroyedError
         console.log(error)
@@ -497,7 +497,7 @@ export default class TaggedText<
         baseTexture.removeListener('update', onTextureUpdate)
       }
 
-      texture.baseTexture.addListener('update', onTextureUpdate)
+      texture.source.addListener('update', onTextureUpdate)
 
       this.spriteTemplates[key] = sprite
 
