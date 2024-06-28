@@ -9,6 +9,8 @@
       "pixi-tagged-text-plus/*": ["./src/*"]
     },
     "resolveJsonModule": true,
+    "outDir": "dist-docs",
     "allowSyntheticDefaultImports": true
-  }
+  },
+  "include": ["src", "docs"]
 }

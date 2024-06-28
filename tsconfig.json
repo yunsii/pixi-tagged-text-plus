@@ -8,9 +8,7 @@
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "paths": {
-      "@/*": ["./src/*"],
-      "pixi-tagged-text-plus": ["./src"],
-      "pixi-tagged-text-plus/*": ["./src/*"]
+      "@/*": ["./src/*"]
     },
     "resolveJsonModule": true,
     "allowJs": false,
@@ -24,6 +22,6 @@
     "isolatedModules": true,
     "skipLibCheck": true
   },
-  "references": [{ "path": "./tsconfig.node.json" }],
-  "include": ["src"]
+  "references": [{ "path": "./tsconfig.node.json" }, { "path": "./tsconfig.docs.json" }],
+  "include": [".src"]
 }
