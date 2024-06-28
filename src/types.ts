@@ -223,7 +223,7 @@ export interface TextStyleExtended
   fontStyle?: FontStyle
   fontSize?: FontSize
   // alias for `fill`
-  color?: PIXI.TextStyleFill
+  color?: PIXI.FillInput
 }
 
 export interface TextDecorationMetrics {

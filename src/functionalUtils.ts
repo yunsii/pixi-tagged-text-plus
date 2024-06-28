@@ -68,8 +68,11 @@ export function mapProp<T, U>(k: keyof U) {
 }
 
 export function flatReduce<T, U>(f: (acc: U, t: T) => U, acc: U) {
-  return (nested: Nested<T>): U =>
-    [nested].flat(255).reduce(f, acc)
+  return (nested: Nested<T>): U => {
+    // eslint-disable-next-line ts/ban-ts-comment
+    // @ts-expect-error
+    return [nested].flat(255).reduce(f, acc)
+  }
 }
 
 type FlatReduceRetrun<T, U> = (nested: Nested<T>) => U
