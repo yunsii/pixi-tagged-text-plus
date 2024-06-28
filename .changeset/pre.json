@@ -1,0 +1,10 @@
+{
+  "mode": "pre",
+  "tag": "next",
+  "initialVersions": {
+    "pixi-tagged-text-plus": "0.0.0"
+  },
+  "changesets": [
+    "yellow-mugs-appear"
+  ]
+}
