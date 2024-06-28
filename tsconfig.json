@@ -9,7 +9,8 @@
     "moduleResolution": "Bundler",
     "paths": {
       "@/*": ["./src/*"],
-      "pixi-tagged-text-plus": ["./src"]
+      "pixi-tagged-text-plus": ["./src"],
+      "pixi-tagged-text-plus/*": ["./src/*"]
     },
     "resolveJsonModule": true,
     "allowJs": false,
@@ -23,6 +24,6 @@
     "isolatedModules": true,
     "skipLibCheck": true
   },
-  "references": [{ "path": "./tsconfig.node.json" }, { "path": "./tsconfig.docs.json" }],
+  "references": [{ "path": "./tsconfig.node.json" }],
   "include": ["src"]
 }
