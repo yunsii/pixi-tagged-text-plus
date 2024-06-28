@@ -9,6 +9,7 @@ import type { UserConfig } from 'vite'
 
 // https://vitejs.dev/config/
 export default mergeConfig(baseConfig, {
+  publicDir: false,
   plugins: [dts({
     exclude: '**/demos',
   })],
