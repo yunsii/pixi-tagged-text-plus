@@ -1,7 +1,7 @@
 {
   "name": "pixi-tagged-text-plus",
   "type": "module",
-  "version": "0.0.1-next.0",
+  "version": "0.0.1-next.1",
   "packageManager": "pnpm@8.15.8",
   "description": "TaggedText for pixi.js",
   "author": "Yuns <yuns.xie@qq.com>",

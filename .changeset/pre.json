@@ -5,6 +5,7 @@
     "pixi-tagged-text-plus": "0.0.0"
   },
   "changesets": [
+    "twelve-otters-arrive",
     "yellow-mugs-appear"
   ]
 }
