@@ -1,4 +1,4 @@
-import getEmojiRegex from 'emoji-regex/es2015/RGI_Emoji'
+import getEmojiRegex from 'emoji-regex'
 
 import { logWarning } from './errorMessaging'
 import { last } from './functionalUtils'
