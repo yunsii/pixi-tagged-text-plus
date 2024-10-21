@@ -18,11 +18,7 @@ export const INITIAL_FONT_PROPS: IFontMetrics = {
 
 // TODO: Memoize
 export function getFontPropertiesOfText(textField: PIXI.Text): IFontMetrics {
-  const fontFamily = Array.isArray(textField.style.fontFamily)
-    ? textField.style.fontFamily[0]
-    : textField.style.fontFamily
-
-  const font = `${textField.style.fontSize}px ${fontFamily} ${textField.style.fontStyle} ${textField.style.fontVariant} ${textField.style.fontWeight}`
+  const font = PIXI.fontStringFromTextStyle(textField.style)
 
   const props = measureFont(font)
   const fs = Number(textField.style.fontSize) ?? Number.NaN
